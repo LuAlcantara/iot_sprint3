@@ -8,7 +8,7 @@ import numpy as np
 # 1. Conectar ao banco de dados Oracle
 try:
     dsn = cx_Oracle.makedsn("oracle.fiap.com.br", 1521, sid="orcl")
-    connection = cx_Oracle.connect(user="rm95111", password="021295", dsn=dsn)
+    connection = cx_Oracle.connect(user="****", password="****", dsn=dsn)
     cursor = connection.cursor()
     print("Conexão com o banco de dados Oracle estabelecida com sucesso!")
 except cx_Oracle.Error as error:
@@ -58,7 +58,6 @@ X = df.drop(columns=['ID_CONSULTA', 'TEM_SINISTRO', 'ID_DENTISTA'])
 y = df['TEM_SINISTRO']
 
 # 5. Dividir os dados em treino e teste
-# Ajustar o test_size para garantir que o conjunto de treino não seja vazio
 min_test_size = max(1, int(len(df) * 0.2))  # Pelo menos 1 linha no teste
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=min_test_size, random_state=42)
 
